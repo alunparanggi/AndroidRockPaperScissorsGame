@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="weapon_dimen">96dp</dimen>
+    <dimen name="weapon_dimen">72dp</dimen>
 </resources>
