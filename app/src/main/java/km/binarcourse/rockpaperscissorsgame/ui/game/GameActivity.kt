@@ -1,4 +1,4 @@
-package km.binarcourse.rockpaperscissorsgame.ui
+package km.binarcourse.rockpaperscissorsgame.ui.game
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import km.binarcourse.rockpaperscissorsgame.R
 import km.binarcourse.rockpaperscissorsgame.dao.PlayerDao
-import km.binarcourse.rockpaperscissorsgame.databinding.ActivityMainBinding
+import km.binarcourse.rockpaperscissorsgame.databinding.ActivityGameBinding
 import km.binarcourse.rockpaperscissorsgame.model.Player
 import km.binarcourse.rockpaperscissorsgame.utils.Constants.PAPER
 import km.binarcourse.rockpaperscissorsgame.utils.Constants.ROCK
@@ -19,9 +19,9 @@ enum class GameState {
     FINISH
 }
 
-class MainActivity : AppCompatActivity() {
+class GameActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityGameBinding
     private lateinit var firstPlayer: PlayerDao
     private lateinit var secondPlayer: PlayerDao
     private lateinit var state: GameState
@@ -29,12 +29,12 @@ class MainActivity : AppCompatActivity() {
     private val selectedWeaponBackgroundColor = Color.argb(150, 237, 213,216)
 
     companion object{
-        val TAG: String? = MainActivity::class.java.simpleName
+        val TAG: String? = GameActivity::class.java.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.hide()        //hide action bar

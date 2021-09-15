@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Rock Paper Scissors Game</string>
+    <string name="text_score_1">1</string>
+    <string name="text_score_0">0</string>
+    <string name="text_score_2">2</string>
+    <string name="text_score_3">3</string>
+    <string name="score_divider">:</string>
 </resources>
