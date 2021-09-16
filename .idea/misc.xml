@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/drawable/ic_restrart.xml" value="0.23697916666666666" />
-        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_game.xml" value="0.25" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/font/font_pixelated.xml" value="0.140625" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_game.xml" value="0.22" />
         <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
