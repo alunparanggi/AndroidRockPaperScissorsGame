@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="gameViewModel"
+            type="km.binarcourse.rockpaperscissorsgame.ui.game.GameViewModel" />
+
+        <variable
+            name="constant"
+            type="km.binarcourse.rockpaperscissorsgame.utils.Constants" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.game.GameActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_game" />
+
+        <ImageView
+            android:id="@+id/iv_game_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_112sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_game_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_vs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_vs"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ll_second_player"
+            app:layout_constraintStart_toEndOf="@id/ll_first_player"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_ava_you"
+            android:layout_width="@dimen/ava_width"
+            android:layout_height="@dimen/ava_height"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_ava_you"
+            app:layout_constraintBottom_toTopOf="@id/ll_first_player"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_ava_com"
+            android:layout_width="@dimen/ava_width"
+            android:layout_height="@dimen/ava_height"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_ava_com"
+            app:layout_constraintBottom_toTopOf="@id/ll_second_player"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/iv_ava_you"
+            app:layout_constraintEnd_toStartOf="@id/iv_ava_com"
+            app:layout_constraintStart_toEndOf="@id/iv_ava_you"
+            app:layout_constraintTop_toTopOf="@id/iv_ava_you">
+
+            <TextView
+                android:id="@+id/tv_first_player_score"
+                style="@style/Text.40.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{gameViewModel.firstPlayerScore.toString()}"
+                tools:text="@string/text_initial_score" />
+
+            <TextView
+                android:id="@+id/tv_score_divider"
+                style="@style/Text.40.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:text="@string/score_divider" />
+
+            <TextView
+                android:id="@+id/tv_second_player_score"
+                style="@style/Text.40.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{gameViewModel.secondPlayerScore.toString()}"
+                tools:text="@string/text_initial_score" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_first_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_72sdp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:background="@{(gameViewModel.firstPlayerWeapon == constant.ROCK) ? @color/soft_chrysa : 0 }"
+                android:id="@+id/iv_first_player_rock"
+                android:layout_width="@dimen/weapon_dimen"
+                android:layout_height="@dimen/weapon_dimen"
+                android:importantForAccessibility="no"
+                android:onClick="@{() -> gameViewModel.setFirstPlayerWeapon(constant.ROCK)}"
+                android:src="@drawable/ic_rock" />
+
+            <ImageView
+                android:background="@{(gameViewModel.firstPlayerWeapon == constant.PAPER) ? @color/soft_chrysa : 0 }"
+                android:id="@+id/iv_first_player_paper"
+                android:layout_width="@dimen/weapon_dimen"
+                android:layout_height="@dimen/weapon_dimen"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:onClick="@{() -> gameViewModel.setFirstPlayerWeapon(constant.PAPER)}"
+                android:src="@drawable/ic_paper" />
+
+            <ImageView
+                android:background="@{(gameViewModel.firstPlayerWeapon == constant.SCISSORS) ? @color/soft_chrysa : 0 }"
+                android:id="@+id/iv_first_player_scissors"
+                android:layout_width="@dimen/weapon_dimen"
+                android:layout_height="@dimen/weapon_dimen"
+                android:importantForAccessibility="no"
+                android:onClick="@{() -> gameViewModel.setFirstPlayerWeapon(constant.SCISSORS)}"
+                android:src="@drawable/ic_scissors" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_second_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_72sdp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:background="@{(gameViewModel.secondPlayerWeapon == constant.ROCK) ? @color/soft_chrysa : 0 }"
+                android:id="@+id/iv_second_player_rock"
+                android:layout_width="@dimen/weapon_dimen"
+                android:layout_height="@dimen/weapon_dimen"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_rock" />
+
+            <ImageView
+                android:background="@{(gameViewModel.secondPlayerWeapon == constant.PAPER) ? @color/soft_chrysa : 0 }"
+                android:id="@+id/iv_second_player_paper"
+                android:layout_width="@dimen/weapon_dimen"
+                android:layout_height="@dimen/weapon_dimen"
+                android:layout_marginVertical="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_paper" />
+
+            <ImageView
+                android:background="@{(gameViewModel.secondPlayerWeapon == constant.SCISSORS) ? @color/soft_chrysa : 0 }"
+                android:id="@+id/iv_second_player_scissors"
+                android:layout_width="@dimen/weapon_dimen"
+                android:layout_height="@dimen/weapon_dimen"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_scissors" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_current_round"
+            style="@style/Text.30.Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{gameViewModel.isGameFinished ? @string/text_final_result : @string/text_current_round(gameViewModel.gameRound)}"
+            android:visibility="@{(gameViewModel.gameRound == 0) ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/iv_result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/text_current_round" />
+
+        <ImageView
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/iv_result"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_36sdp"
+            android:importantForAccessibility="no"
+            app:imgResource="@{gameViewModel.gameResult}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_restart_game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_first_player"
+            tools:src="@drawable/img_win" />
+
+        <ImageView
+            android:id="@+id/btn_restart_game"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:visibility="@{gameViewModel.isGameFinished ? View.VISIBLE : View.INVISIBLE}"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_restart"
+            android:onClick="@{()->gameViewModel.restartGame()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
