@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="weapon_dimen">96dp</dimen>
+    <dimen name="weapon_dimen">@dimen/_56sdp</dimen>
+    <dimen name="ava_height">@dimen/_64sdp</dimen>
+    <dimen name="ava_width">@dimen/_84sdp</dimen>
 </resources>
