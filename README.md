@@ -10,4 +10,10 @@ A simple android Rock-Paper-Scissors game using Kotlin
 
 ![App Screenshot](https://i.ibb.co/cJ1w27X/v1.png)
 
+
+
+## Demo
+![App Screenshot](https://i.postimg.cc/SRL1WPZm/demo.gif)
+
+
   
