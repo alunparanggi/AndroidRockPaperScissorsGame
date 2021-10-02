@@ -4,4 +4,6 @@
     <string name="score_divider">:</string>
     <string name="text_current_round">Round %d</string>
     <string name="text_final_result">Final Result</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
