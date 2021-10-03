@@ -29,18 +29,7 @@
             android:src="@drawable/bg_game" />
 
         <ImageView
-            android:id="@+id/iv_game_name"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_112sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/img_game_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_first_player_weapon"
+            android:id="@+id/iv_selected_first_player_weapon"
             android:layout_width="@dimen/weapon_dimen"
             android:layout_height="@dimen/weapon_dimen"
             android:layout_marginStart="@dimen/_16sdp"
@@ -48,10 +37,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:selectedWeapon="@{gameViewModel.firstPlayerWeapon}"
+            app:gameRoundState="@{gameViewModel.isGameRoundFinished}"
             tools:src="@drawable/ic_rock" />
 
         <ImageView
-            android:id="@+id/iv_second_player_weapon"
+            android:id="@+id/iv_selected_second_player_weapon"
             android:layout_width="@dimen/weapon_dimen"
             android:layout_height="@dimen/weapon_dimen"
             android:layout_marginEnd="@dimen/_16sdp"
@@ -59,6 +50,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:selectedWeapon="@{gameViewModel.secondPlayerWeapon}"
+            app:gameRoundState="@{gameViewModel.isGameRoundFinished}"
             tools:src="@drawable/ic_rock" />
 
         <ImageView
@@ -78,7 +71,7 @@
             android:layout_height="@dimen/ava_height"
             android:importantForAccessibility="no"
             android:src="@drawable/img_ava_you"
-            app:layout_constraintBottom_toTopOf="@id/iv_first_player_weapon"
+            app:layout_constraintBottom_toTopOf="@id/iv_selected_first_player_weapon"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
@@ -87,10 +80,11 @@
             android:layout_height="@dimen/ava_height"
             android:importantForAccessibility="no"
             android:src="@drawable/img_ava_com"
-            app:layout_constraintBottom_toTopOf="@id/iv_second_player_weapon"
+            app:layout_constraintBottom_toTopOf="@id/iv_selected_second_player_weapon"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <LinearLayout
+            android:id="@+id/ll_score"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -128,7 +122,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_second_player"
+            android:id="@+id/ll_weapon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_72sdp"
@@ -144,6 +138,7 @@
                 android:layout_width="@dimen/weapon_dimen"
                 android:layout_height="@dimen/weapon_dimen"
                 android:importantForAccessibility="no"
+                android:onClick="@{() -> gameViewModel.onWeaponSelected(constant.ROCK)}"
                 android:src="@drawable/ic_rock" />
 
             <ImageView
@@ -152,6 +147,7 @@
                 android:layout_height="@dimen/weapon_dimen"
                 android:layout_marginHorizontal="@dimen/_16sdp"
                 android:importantForAccessibility="no"
+                android:onClick="@{() -> gameViewModel.onWeaponSelected(constant.PAPER)}"
                 android:src="@drawable/ic_paper" />
 
             <ImageView
@@ -159,34 +155,49 @@
                 android:layout_width="@dimen/weapon_dimen"
                 android:layout_height="@dimen/weapon_dimen"
                 android:importantForAccessibility="no"
+                android:onClick="@{() -> gameViewModel.onWeaponSelected(constant.SCISSORS)}"
                 android:src="@drawable/ic_scissors" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_current_round"
+            android:id="@+id/tv_player_turn"
             style="@style/Text.30.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:background="@color/soft_chrysa"
+            android:paddingHorizontal="@dimen/_8sdp"
+            app:gameState="@{gameViewModel.isGameFinished}"
+            app:layout_constraintBottom_toTopOf="@id/ll_weapon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:playerTurn="@{gameViewModel.isFirstPlayerTurn}"
+            tools:text="1st Player Turn" />
+
+        <TextView
+            android:id="@+id/tv_current_round"
+            style="@style/Text.30.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
             android:gravity="center"
             android:text="@{gameViewModel.isGameFinished ? @string/text_final_result : @string/text_current_round(gameViewModel.gameRound)}"
             android:visibility="@{(gameViewModel.gameRound == 0) ? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintBottom_toTopOf="@id/iv_result"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@string/text_current_round" />
 
         <ImageView
             android:id="@+id/iv_result"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_36sdp"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
             android:importantForAccessibility="no"
             app:imgResource="@{gameViewModel.gameResult}"
-            app:layout_constraintBottom_toTopOf="@+id/ll_second_player"
+            app:layout_constraintBottom_toTopOf="@+id/ll_score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_vs"
             tools:src="@drawable/img_win" />
 
         <ImageView

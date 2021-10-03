@@ -1,15 +1,17 @@
 package km.binarcourse.rockpaperscissorsgame.ui.menu
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import km.binarcourse.rockpaperscissorsgame.R
+import km.binarcourse.rockpaperscissorsgame.data.preference.PlayerPreference
 import km.binarcourse.rockpaperscissorsgame.databinding.ActivityMenuBinding
 import km.binarcourse.rockpaperscissorsgame.ui.game.GameActivity
 
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
+    private lateinit var sharedPref: PlayerPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,26 @@ class MenuActivity : AppCompatActivity() {
         binding.ivMultiPlayerMode.setOnClickListener { onMultiPlayerModeSelected() }
         binding.ivSinglePlayerMode.setOnClickListener { onSinglePlayerModeSelected() }
 
+        sharedPref = PlayerPreference(this)
+
+        initTextMenu()
+        showSnackBar()
+    }
+
+    private fun initTextMenu(){
+        binding.tvMenuMultiplayer.text =
+            getString(R.string.text_menu_multiplayer, sharedPref.playerName)
+        binding.tvMenuSinglePlayer.text =
+            getString(R.string.text_menu_single_player, sharedPref.playerName)
+    }
+
+    private fun showSnackBar() {
+        Snackbar
+            .make(binding.root,
+                getString(R.string.text_welcome_player, sharedPref.playerName),
+                Snackbar.LENGTH_LONG)
+            .setAction("Close") { }
+            .show()
     }
 
     private fun navigateToGame(isMultiPlayerSelected: Boolean){

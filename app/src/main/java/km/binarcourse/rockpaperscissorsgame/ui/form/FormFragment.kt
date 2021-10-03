@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import km.binarcourse.rockpaperscissorsgame.data.preference.PlayerPreference
 import km.binarcourse.rockpaperscissorsgame.databinding.FragmentFormBinding
 import km.binarcourse.rockpaperscissorsgame.ui.menu.MenuActivity
@@ -26,17 +27,16 @@ class FormFragment : Fragment() {
         return binding.root
     }
 
-    fun onPlayBtnClicked(context: Context) {
+    private fun onPlayBtnClicked(context: Context) {
         if (binding.etPlayerName.text.isNullOrEmpty()) {
             binding.etPlayerName.error = "You can't let it empty"
         } else {
             sharedPref?.playerName = binding.etPlayerName.text.toString()
-            Log.d("cekcek", "onPlayBtnClicked: ${sharedPref?.playerName}")
             navigateToMenu(context)
         }
     }
 
-    private fun navigateToMenu(context: Context){
+    private fun navigateToMenu(context: Context) {
         val intent = Intent(context, MenuActivity::class.java)
         context.startActivity(intent)
     }
