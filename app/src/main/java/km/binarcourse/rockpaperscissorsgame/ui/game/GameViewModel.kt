@@ -47,6 +47,11 @@ class GameViewModel : ViewModel() {
     val gameRound: LiveData<Int>
         get() = _gameRound
 
+    private val _isMultiPlayerMode = MutableLiveData(false)
+    val isMultiPlayerMode: LiveData<Boolean>
+        get() = _isMultiPlayerMode
+
+
     /**
      * this method is used for checking the state of game and setting the first player's weapon.
      * when the state of game is finished then the users won't be able to select the weapon before
@@ -57,6 +62,7 @@ class GameViewModel : ViewModel() {
         if (!_isGameFinished.value!!) {
             _firstPlayerWeapon.value = weapon
             Log.d(TAG, "first player select ${getWeaponString(_firstPlayerWeapon.value)}")
+            Log.d(TAG, "multiplayer? ${isMultiPlayerMode.value} ")
             selectRandomComputerWeapon()
         }
     }
@@ -158,5 +164,9 @@ class GameViewModel : ViewModel() {
             SECOND_PLAYER_WIN -> "Second Player Win"
             else -> "DRAW"
         }
+    }
+
+    fun setGameMode(isMultiPlayerMode: Boolean){
+        _isMultiPlayerMode.value = isMultiPlayerMode
     }
 }
