@@ -51,7 +51,9 @@ class GameViewModel : ViewModel() {
     val isGameRoundFinished: LiveData<Boolean>
         get() = _isGameRoundFinished
 
-    private val isMultiPlayerMode = MutableLiveData(false)
+    private val _isMultiPlayerMode = MutableLiveData(false)
+    val isMultiPlayerMode: LiveData<Boolean>
+        get() = _isMultiPlayerMode
 
     private val _isFirstPlayerTurn = MutableLiveData(true)
     val isFirstPlayerTurn: LiveData<Boolean>
@@ -175,12 +177,13 @@ class GameViewModel : ViewModel() {
     }
 
     //method is used for logging
-    private fun getWeaponString(weapon: Int?): String{
-        return when(weapon){
-            ROCK -> "Rock"
-            PAPER -> "Paper"
-            else -> "Scissors"
+    fun getWeaponString(weapon: Int?): String{
+        when(weapon){
+            ROCK -> return "Rock"
+            PAPER -> return "Paper"
+            SCISSORS -> return "Scissors"
         }
+        return "Unselected"
     }
 
     //method is used for logging
@@ -193,6 +196,6 @@ class GameViewModel : ViewModel() {
     }
 
     fun setGameMode(isMultiPlayerMode: Boolean){
-        this.isMultiPlayerMode.value = isMultiPlayerMode
+        this._isMultiPlayerMode.value = isMultiPlayerMode
     }
 }

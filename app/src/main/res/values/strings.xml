@@ -13,4 +13,7 @@
     <string name="text_first_player_turn">1st Player\'s Turn</string>
     <string name="text_second_player_turn">2nd Player\'s Turn</string>
     <string name="text_welcome_player">Welcome %s</string>
+    <string name="text_btn_back_to_menu">Back to menu</string>
+    <string name="text_btn_play_again">Play Again</string>
+    <string name="text_the_winner">%s Win The Game</string>
 </resources>

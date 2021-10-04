@@ -14,9 +14,11 @@
         android:theme="@style/Theme.RockPaperScissorsGame">
         <activity
             android:name=".ui.menu.MenuActivity"
+            android:theme="@style/Theme.RockPaperScissorsGame.NoActionBar.FullScreen"
             android:exported="true" />
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:theme="@style/Theme.RockPaperScissorsGame.NoActionBar.FullScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,17 +28,13 @@
         </activity>
         <activity
             android:name=".ui.intro.IntroActivity"
+            android:theme="@style/Theme.RockPaperScissorsGame.NoActionBar.FullScreen"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.game.GameActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.RockPaperScissorsGame.NoActionBar.FullScreen"
+            android:exported="true"/>
     </application>
 
 </manifest>
