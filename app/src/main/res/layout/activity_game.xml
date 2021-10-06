@@ -70,7 +70,7 @@
             android:layout_width="@dimen/ava_width"
             android:layout_height="@dimen/ava_height"
             android:importantForAccessibility="no"
-            android:src="@drawable/img_ava_you"
+            android:src="@drawable/img_ava_player1"
             app:layout_constraintBottom_toTopOf="@id/iv_selected_first_player_weapon"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -79,7 +79,8 @@
             android:layout_width="@dimen/ava_width"
             android:layout_height="@dimen/ava_height"
             android:importantForAccessibility="no"
-            android:src="@drawable/img_ava_com"
+            tools:src="@drawable/img_ava_player2"
+            app:gameMode="@{gameViewModel.isMultiPlayerMode}"
             app:layout_constraintBottom_toTopOf="@id/iv_selected_second_player_weapon"
             app:layout_constraintEnd_toEndOf="parent" />
 

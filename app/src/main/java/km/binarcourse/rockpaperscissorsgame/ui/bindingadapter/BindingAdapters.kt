@@ -57,3 +57,10 @@ fun loadImgFromUrl(imgView: ImageView, imgUrl: String?){
             .into(imgView)
     }
 }
+
+@BindingAdapter("gameMode")
+fun setAvaSecondPlayer(imgView: ImageView, isMultiPlayerMode: Boolean){
+    imgView.setImageResource(
+        if(isMultiPlayerMode) R.drawable.img_ava_player2 else R.drawable.img_ava_com
+    )
+}

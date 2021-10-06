@@ -60,28 +60,29 @@ class GameActivity : AppCompatActivity() {
 
     //trigger for showing a toast which weapon player selected
     private fun showToastSelectedWeapon() {
-        viewModel.firstPlayerWeapon.observe(this, {
-            if (it != UNSELECTED) {
-                Toast.makeText(
-                    this,
-                    "${sharedPref.playerName} chose ${viewModel.getWeaponString(it)}",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
-            }
-        })
+        if(viewModel.isMultiPlayerMode.value == true){
+            viewModel.firstPlayerWeapon.observe(this, {
+                if (it != UNSELECTED) {
+                    Toast.makeText(
+                        this,
+                        "${sharedPref.playerName} chose ${viewModel.getWeaponString(it)}",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+            })
 
-        viewModel.secondPlayerWeapon.observe(this, {
-            val player = if (viewModel.isMultiPlayerMode.value == true) "2nd Player" else "Computer"
-            if (it != UNSELECTED) {
-                Toast.makeText(
-                    this,
-                    "$player chose ${viewModel.getWeaponString(it)}",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
-            }
-        })
+            viewModel.secondPlayerWeapon.observe(this, {
+                if (it != UNSELECTED) {
+                    Toast.makeText(
+                        this,
+                        "2nd Player chose ${viewModel.getWeaponString(it)}",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+            })
+        }
     }
 
     private fun showCustomDialog() {

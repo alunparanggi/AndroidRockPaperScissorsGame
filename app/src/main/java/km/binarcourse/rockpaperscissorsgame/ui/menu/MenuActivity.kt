@@ -1,5 +1,6 @@
 package km.binarcourse.rockpaperscissorsgame.ui.menu
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -7,6 +8,7 @@ import km.binarcourse.rockpaperscissorsgame.R
 import km.binarcourse.rockpaperscissorsgame.data.preference.PlayerPreference
 import km.binarcourse.rockpaperscissorsgame.databinding.ActivityMenuBinding
 import km.binarcourse.rockpaperscissorsgame.ui.game.GameActivity
+import km.binarcourse.rockpaperscissorsgame.ui.intro.IntroActivity
 
 class MenuActivity : AppCompatActivity() {
 
@@ -24,6 +26,8 @@ class MenuActivity : AppCompatActivity() {
         binding.ivSinglePlayerMode.setOnClickListener { onSinglePlayerModeSelected() }
 
         sharedPref = PlayerPreference(this)
+
+        binding.btnChangeName.setOnClickListener { navigateToIntro() }
 
         initTextMenu()
         showSnackBar()
@@ -56,4 +60,10 @@ class MenuActivity : AppCompatActivity() {
     private fun onSinglePlayerModeSelected() {
         navigateToGame(isMultiPlayerSelected = false)
     }
+
+    private fun navigateToIntro(){
+        startActivity(Intent(this, IntroActivity::class.java))
+        finish()
+    }
+
 }

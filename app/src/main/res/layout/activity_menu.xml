@@ -24,46 +24,81 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.498">
 
-            <ImageView
-                android:id="@+id/iv_multi_player_mode"
-                android:layout_width="@dimen/_126sdp"
-                android:layout_height="@dimen/_126sdp"
-                app:imageUrl="@{constants.URL_MULTIPLAYER_IMG}"
-                tools:ignore="ContentDescription"
-                tools:src="@drawable/img_game_name" />
-
-            <TextView
-                android:id="@+id/tv_menu_multiplayer"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="@dimen/_25ssp"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:padding="@dimen/_8sdp"
+                android:id="@+id/ll_multiplayer_menu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_menu_multiplayer" />
+                android:background="@drawable/bg_menu"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:padding="@dimen/_8sdp"
+                    android:id="@+id/iv_multi_player_mode"
+                    android:layout_width="@dimen/_126sdp"
+                    android:layout_height="@dimen/_126sdp"
+                    app:imageUrl="@{constants.URL_MULTIPLAYER_IMG}"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_game_name" />
+
+                <TextView
+                    android:id="@+id/tv_menu_multiplayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_menu_multiplayer"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_20sdp" />
+                android:layout_height="@dimen/_20sdp" />
 
-            <ImageView
-                android:id="@+id/iv_single_player_mode"
-                android:layout_width="@dimen/_126sdp"
-                android:layout_height="@dimen/_126sdp"
-                app:imageUrl="@{constants.URL_SINGLE_PLAYER_IMG}"
-                tools:ignore="ContentDescription"
-                tools:src="@drawable/img_game_name" />
-
-            <TextView
-                android:id="@+id/tv_menu_single_player"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="@dimen/_25ssp"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:padding="@dimen/_8sdp"
+                android:id="@+id/ll_single_player_menu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_menu_single_player" />
+                android:background="@drawable/bg_menu"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:padding="@dimen/_8sdp"
+                    android:id="@+id/iv_single_player_mode"
+                    android:layout_width="@dimen/_126sdp"
+                    android:layout_height="@dimen/_126sdp"
+                    app:imageUrl="@{constants.URL_SINGLE_PLAYER_IMG}"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_game_name" />
+
+                <TextView
+                    android:id="@+id/tv_menu_single_player"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_menu_single_player"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_change_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/pixelated"
+                android:text="@string/text_btn_change_player_name"
+                android:textSize="@dimen/_15ssp" />
 
         </LinearLayout>
 

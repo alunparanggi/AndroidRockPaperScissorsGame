@@ -25,11 +25,11 @@ class IntroActivity : AppCompatActivity() {
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
         viewPagerAdapter.addFragment(IntroFragment.newInstance(
             getString(R.string.text_desc_intro_play_with_friend),
-            R.drawable.img_win)
+            R.drawable.img_intro1)
         )
         viewPagerAdapter.addFragment(IntroFragment.newInstance(
             getString(R.string.text_desc_intro_play_with_com),
-            R.drawable.img_lose)
+            R.drawable.img_intro2)
         )
         viewPagerAdapter.addFragment(FormFragment.newInstance(this))
 

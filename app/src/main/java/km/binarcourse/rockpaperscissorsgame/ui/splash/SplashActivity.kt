@@ -6,12 +6,15 @@ import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import km.binarcourse.rockpaperscissorsgame.R
+import km.binarcourse.rockpaperscissorsgame.data.preference.PlayerPreference
 import km.binarcourse.rockpaperscissorsgame.ui.intro.IntroActivity
+import km.binarcourse.rockpaperscissorsgame.ui.menu.MenuActivity
 
 
 class SplashActivity : AppCompatActivity() {
 
     private var timer: CountDownTimer? = null
+    private lateinit var sharedPref: PlayerPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +22,8 @@ class SplashActivity : AppCompatActivity() {
 
         setSplashTimer()
         supportActionBar?.hide()
+
+        sharedPref = PlayerPreference(this)
     }
 
     private fun setSplashTimer() {
@@ -27,16 +32,14 @@ class SplashActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                val intent = Intent(this@SplashActivity, IntroActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                val intentIntro = Intent(this@SplashActivity, IntroActivity::class.java)
+                val intentMenu = Intent(this@SplashActivity, MenuActivity::class.java)
 
-                //set fade animation
-                val bundle = ActivityOptionsCompat.makeCustomAnimation(
-                    this@SplashActivity,
-                    android.R.anim.fade_in,
-                    android.R.anim.fade_out
-                ).toBundle()
-                startActivity(intent, bundle)
+                if(sharedPref.playerName.isNullOrEmpty())
+                    navigateToNextPage(intentIntro)
+                else
+                    navigateToNextPage(intentMenu)
+
             }
 
         }
@@ -50,5 +53,17 @@ class SplashActivity : AppCompatActivity() {
             it.cancel()
             timer = null
         }
+    }
+
+    private fun navigateToNextPage(intent: Intent){
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+        //set fade animation
+        val bundle = ActivityOptionsCompat.makeCustomAnimation(
+            this@SplashActivity,
+            android.R.anim.fade_in,
+            android.R.anim.fade_out
+        ).toBundle()
+        startActivity(intent, bundle)
     }
 }
