@@ -3,10 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alunparanggi/.gradle/caches/transforms-3/348f6d52d990d4fb4fcc5abc17a1cdcd/transformed/core-1.6.0/res/layout/custom_dialog.xml" value="0.225" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21851851851851853" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/drawable/backgroun_rps.xml" value="0.21851851851851853" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/drawable/bg_menu.xml" value="0.21851851851851853" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21851851851851853" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/drawable/ic_next.xml" value="0.1265625" />
         <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/drawable/ic_restrart.xml" value="0.23697916666666666" />
         <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/font/font_pixelated.xml" value="0.140625" />
         <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_game.xml" value="0.22" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_intro.xml" value="0.15" />
         <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_menu.xml" value="0.22" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/activity_splash.xml" value="0.13" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/custom_dialog.xml" value="0.225" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/fragment_form.xml" value="0.2109375" />
+        <entry key="..\:/Users/alunparanggi/AndroidStudioProjects/BinarAcademy/Chapter4/RockPaperScissorsGame/app/src/main/res/layout/fragment_intro.xml" value="0.19" />
       </map>
     </option>
   </component>

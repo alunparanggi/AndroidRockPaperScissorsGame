@@ -47,18 +47,50 @@ class GameViewModel : ViewModel() {
     val gameRound: LiveData<Int>
         get() = _gameRound
 
+    private val _isGameRoundFinished = MutableLiveData(false)
+    val isGameRoundFinished: LiveData<Boolean>
+        get() = _isGameRoundFinished
+
+    private val _isMultiPlayerMode = MutableLiveData(false)
+    val isMultiPlayerMode: LiveData<Boolean>
+        get() = _isMultiPlayerMode
+
+    private val _isFirstPlayerTurn = MutableLiveData(true)
+    val isFirstPlayerTurn: LiveData<Boolean>
+        get() = _isFirstPlayerTurn
+
+    fun onWeaponSelected(weapon: Int){
+        if (_isFirstPlayerTurn.value == true){
+            setFirstPlayerWeapon(weapon)
+        } else {
+            setSecondPlayerWeapon(weapon)
+        }
+    }
+
     /**
      * this method is used for checking the state of game and setting the first player's weapon.
      * when the state of game is finished then the users won't be able to select the weapon before
      * they click the restart game button.
      */
-    fun setFirstPlayerWeapon(weapon: Int) {
+    private fun setFirstPlayerWeapon(weapon: Int) {
         // if game is not finished then show log, set weapon, and call selectRandomComputerWeapon()
         if (!_isGameFinished.value!!) {
             _firstPlayerWeapon.value = weapon
             Log.d(TAG, "first player select ${getWeaponString(_firstPlayerWeapon.value)}")
-            selectRandomComputerWeapon()
+
+            _isGameRoundFinished.value = false
+            _isFirstPlayerTurn.value = false
+
+            if(isMultiPlayerMode.value != true) selectRandomComputerWeapon()
         }
+    }
+
+    private fun setSecondPlayerWeapon(weapon: Int){
+        _secondPlayerWeapon.value = weapon
+        _isFirstPlayerTurn.value = true
+
+        increaseTheWinnerScore(_firstPlayerWeapon.value, _secondPlayerWeapon.value)
+        findTheWinner()
     }
 
     /**
@@ -70,6 +102,7 @@ class GameViewModel : ViewModel() {
             PAPER -> _secondPlayerWeapon.value = PAPER
             SCISSORS -> _secondPlayerWeapon.value = SCISSORS
         }
+        _isFirstPlayerTurn.value = true
 
         Log.d(TAG, "second player select ${getWeaponString(_secondPlayerWeapon.value)}")
 
@@ -120,6 +153,7 @@ class GameViewModel : ViewModel() {
 
     //increase current games round
     private fun increaseCurrentRound(){
+        _isGameRoundFinished.value = true
         _gameRound.value = _gameRound.value?.plus(1)
     }
 
@@ -143,12 +177,13 @@ class GameViewModel : ViewModel() {
     }
 
     //method is used for logging
-    private fun getWeaponString(weapon: Int?): String{
-        return when(weapon){
-            ROCK -> "Rock"
-            PAPER -> "Paper"
-            else -> "Scissors"
+    fun getWeaponString(weapon: Int?): String{
+        when(weapon){
+            ROCK -> return "Rock"
+            PAPER -> return "Paper"
+            SCISSORS -> return "Scissors"
         }
+        return "Unselected"
     }
 
     //method is used for logging
@@ -158,5 +193,9 @@ class GameViewModel : ViewModel() {
             SECOND_PLAYER_WIN -> "Second Player Win"
             else -> "DRAW"
         }
+    }
+
+    fun setGameMode(isMultiPlayerMode: Boolean){
+        this._isMultiPlayerMode.value = isMultiPlayerMode
     }
 }

@@ -4,4 +4,21 @@
     <string name="score_divider">:</string>
     <string name="text_current_round">Round %d</string>
     <string name="text_final_result">Final Result</string>
+    <string name="text_desc_intro_play_with_friend">You can play with your friend</string>
+    <string name="text_desc_intro_play_with_com">You can play with computer</string>
+    <string name="text_hint_your_name">your name</string>
+    <string name="text_menu_multiplayer">%s vs Player</string>
+    <string name="text_menu_single_player">%s vs Computer</string>
+    <string name="text_button_play">Play</string>
+    <string name="text_first_player_turn">1st Player\'s Turn</string>
+    <string name="text_second_player_turn">2nd Player\'s Turn</string>
+    <string name="text_welcome_player">Welcome %s</string>
+    <string name="text_btn_back_to_menu">Back to menu</string>
+    <string name="text_btn_play_again">Play Again</string>
+    <string name="text_the_winner">%s Win The Game</string>
+    <string name="text_btn_change_player_name">Change Name</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="text_title_alert_dialog_exit_game">Exit game?</string>
+    <string name="text_message_alert_dialog">Click yes if you wanna back to menu</string>
 </resources>

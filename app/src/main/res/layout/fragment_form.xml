@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.form.FormFragment">
+
+        <ImageView
+            android:id="@+id/iv_intro_form"
+            android:layout_width="@dimen/_126sdp"
+            android:layout_height="@dimen/_126sdp"
+            android:layout_marginBottom="@dimen/_64sdp"
+            android:src="@drawable/img_intro3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_player_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_36sdp"
+            android:layout_marginTop="@dimen/_36sdp"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_intro_form">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_player_name"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_hint_your_name"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:fontFamily="@font/pixelated"
+            android:text="@string/text_button_play"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="@id/til_player_name"
+            app:layout_constraintStart_toStartOf="@id/til_player_name"
+            app:layout_constraintTop_toBottomOf="@id/til_player_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

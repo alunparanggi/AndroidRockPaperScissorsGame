@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="@dimen/_8sdp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textSize="@dimen/_16ssp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="@string/text_final_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_winner"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginVertical="@dimen/_16sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Alun win the game"/>
+
+        <Button
+            android:id="@+id/btn_play_again"
+            android:layout_gravity="center"
+            android:text="@string/text_btn_play_again"
+            style="@style/Text.30.White"
+            android:textSize="@dimen/_15ssp"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/btn_back_to_menu"
+            android:layout_gravity="center"
+            android:text="@string/text_btn_back_to_menu"
+            style="?attr/materialButtonOutlinedStyle"
+            android:textSize="@dimen/_15ssp"
+            android:fontFamily="@font/pixelated"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</layout>
