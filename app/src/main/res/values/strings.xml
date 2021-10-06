@@ -17,4 +17,8 @@
     <string name="text_btn_play_again">Play Again</string>
     <string name="text_the_winner">%s Win The Game</string>
     <string name="text_btn_change_player_name">Change Name</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="text_title_alert_dialog_exit_game">Exit game?</string>
+    <string name="text_message_alert_dialog">Click yes if you wanna back to menu</string>
 </resources>

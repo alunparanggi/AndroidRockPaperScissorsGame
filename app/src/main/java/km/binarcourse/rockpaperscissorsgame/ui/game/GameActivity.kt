@@ -54,6 +54,11 @@ class GameActivity : AppCompatActivity() {
         showCustomDialog()
     }
 
+    override fun onBackPressed() {
+//        super.onBackPressed()
+        showAlertDialog()
+    }
+
     //get game mode (single or multiplayer)
     private fun gameMode(): Boolean =
         intent.getBooleanExtra(EXTRAS_GAME_MODE, false)
@@ -112,6 +117,21 @@ class GameActivity : AppCompatActivity() {
                 dialog.show()
             }
         })
+    }
+
+    private fun showAlertDialog(){
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder
+            .setTitle(getString(R.string.text_title_alert_dialog_exit_game))
+            .setMessage(getString(R.string.text_message_alert_dialog))
+            .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                finish()
+            }
+            .setNegativeButton(getString(R.string.no)){ dialog, _ ->
+                dialog.cancel()
+            }
+            .create()
+            .show()
     }
 
     //navigate to menu activity
